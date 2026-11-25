@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREDICTION DES REUSSITES </title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main>
+        <p>MINI PROJET IA</p>
+
+        <h1>Prediction de la reussite d'un etudiant</h1>
+
+        <p>Renseigner les heures et les notes</p>
+
+        <div class="form-container">
+            <form action="{{ url_for('index' ) }}" method="post">
+                    <div class="form_items">
+                        <label for="heure">Nombre d'hueres d'etude</label>
+                        <input type="number" name="heures_etude" value="{{heures}}" id="heure" required > 
+                    </div>
+                    <div class="form_items">
+                        <label for="note">Note du partiel</label>
+                        <input type="number" name="note_partiel" value="{{note}}" id="note" required>
+                    </div>
+                    <button type="submit">Predict</button>
+            </form>
+
+                <div class="message">
+
+                    {% if erreur %}
+                        <p  role="alert" class="erreur">{{ erreur }}</p>
+                    {% endif %}
+        
+                    {% if resultat %}
+                        <section class="prediction" aria-live="polite">
+                            <p> Resultat : <span>{{ resultat }}</span></p>
+                        </section>
+        
+                    {% if prediction is not none %}
+                        <p class="result">La prediction est : {{ prediction }}</p>
+                    {% endif %}
+                </div>
+            </div>
+    </main>
+</body>
+</html>
