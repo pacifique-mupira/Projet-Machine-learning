@@ -1,4 +1,4 @@
-Python 3.14.10
+flask>=3.0
 pandas
 joblib
 scikit-learn
