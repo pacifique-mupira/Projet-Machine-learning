@@ -1,4 +1,4 @@
-python>0
+python
 pandas
 joblib
 scikit-learn
